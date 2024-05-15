@@ -17,6 +17,12 @@ export const Post = styled(BaseCard)`${s => css`
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5rem;
+  position: relative;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: ${s.theme.colors["base-border"]};
+  }
 
   strong {
     font: ${s.theme.fonts["title-m"]};
@@ -26,5 +32,15 @@ export const Post = styled(BaseCard)`${s => css`
   time {
     font: ${s.theme.fonts["text-s"]};
     color: ${s.theme.colors["base-span"]};
+  }
+
+  a {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+
+  p {
+    width: 100%;
   }
 `}`

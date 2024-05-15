@@ -22,6 +22,11 @@ export const HeaderContainer = styled.header`${s => css`
 
   svg {
     font-size: 4rem;
+    color: ${s.theme.colors["base-background"]};
+    filter: drop-shadow(-1px -1px 0 ${s.theme.colors.blue})
+            drop-shadow(-1px 1px 0 ${s.theme.colors.blue})
+            drop-shadow(1px -1px 0 ${s.theme.colors.blue})
+            drop-shadow(1px 1px 0 ${s.theme.colors.blue});
   }
 
   @media screen and (max-width: 960px) {
@@ -73,13 +78,6 @@ export const HeaderContainer = styled.header`${s => css`
     @media screen and (max-width: 960px) {
       filter: drop-shadow(calc(-10rem / 2.75) calc(10rem / 2.75) 6rem ${s.theme.colors.blue}aa);
     }
-  }
-
-  svg {
-    filter: drop-shadow(-1px -1px 0 ${s.theme.colors.blue})
-            drop-shadow(-1px 1px 0 ${s.theme.colors.blue})
-            drop-shadow(1px -1px 0 ${s.theme.colors.blue})
-            drop-shadow(1px 1px 0 ${s.theme.colors.blue});
   }
     
 `}`

@@ -1,32 +1,25 @@
 import { ArrowSquareOut, Building, GithubLogo, Users } from "@phosphor-icons/react";
 import { ProfileContainer, ProfileContent, ProfileImage } from "./styles";
+import { useContextSelector } from "use-context-selector";
+import { PostsContext } from "../../../contexts/PostsContext";
 
-interface ProfileProps {
-  name: string,
-  github: {
-    avatar: string,
-    userName: string,
-    url: string
-  },
-  description: string,
-  role: string,
-  followers: number
-}
-
-export function Profile({ name, github, description, role, followers }: ProfileProps) {
+export function Profile() {
+  const { name, avatar_url, html_url, bio, login, company, followers } = useContextSelector(PostsContext, (context) => {
+    return context.user
+  })
   return (
     <ProfileContainer>
-      <ProfileImage src={github.avatar} />
+      <ProfileImage src={avatar_url} />
       <ProfileContent>
         <header>
           <strong>{ name }</strong>
-          <a href={github.url} target="_blank">Github <ArrowSquareOut  /></a>
+          <a href={html_url} target="_blank">Github <ArrowSquareOut  /></a>
         </header>
-        <p>{description}</p>
+        {bio && <p>{ bio }</p>}
         <ul>
-          <li><GithubLogo /><span>{github.userName}</span></li>
-          <li><Building /><span>{ role }</span></li>
-          <li><Users /><span>{ followers } seguidor{ followers > 1 || followers <= 0 && 'es' }</span></li>
+          <li><GithubLogo weight="fill" /><span>{login}</span></li>
+          {company && <li><Building weight="fill" /><span>{ company }</span></li>}
+          <li><Users weight="fill" /><span>{ followers } seguidor{ followers > 1 || followers <= 0 && 'es' }</span></li>
         </ul>
       </ProfileContent>
     </ProfileContainer>
