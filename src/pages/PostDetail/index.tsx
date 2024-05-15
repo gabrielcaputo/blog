@@ -10,7 +10,7 @@ export function PostDetail() {
   const [post, setPost] = useState<Post>({
     number: 0,
     title: "",
-    url: "",
+    html_url: "",
     body: "",
     comments: 0,
     user: {

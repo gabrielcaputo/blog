@@ -1,7 +1,7 @@
 export interface Post {
   number: number,
   title: string,
-  url: string,
+  html_url: string,
   body: string,
   comments: number,
   user: {
