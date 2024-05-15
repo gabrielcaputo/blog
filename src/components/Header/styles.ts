@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 export const HeaderContainer = styled.header`${s => css`
   display: flex;
   width: 100vw;
-  height: 18.5rem;
   overflow: hidden;
   justify-content: center;
   align-items: center;
@@ -13,6 +12,7 @@ export const HeaderContainer = styled.header`${s => css`
   text-transform: uppercase;
   position: relative;
   gap: 0.5rem;
+  padding: 4rem 0 8rem;
   background:
     url('/images/header-effect-left.svg') no-repeat 0 50%,
     url('/images/header-effect-right.svg') no-repeat 100% 50%,
@@ -23,12 +23,17 @@ export const HeaderContainer = styled.header`${s => css`
   }
 
   @media screen and (max-width: 960px) {
-    height: 10rem;
+    padding: 2rem 0 4rem;
     font-size: 1rem;
+    background-size: 40vw;
 
     svg {
       font-size: 2rem;
     }
+  }
+
+  @media screen and (max-width: 600px) {
+    background-size: 50vw;
   }
 
   &::before,
