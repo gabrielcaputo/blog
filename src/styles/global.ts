@@ -11,17 +11,18 @@ export const GlobalStyle = createGlobalStyle`
 
     :focus {
       outline: none;
-      box-shadow: 0 0 0 2px ${s.theme.blue};
+      box-shadow: 0 0 0 2px ${s.theme.colors.blue};
     }
 
     body {
-      background: ${s.theme['base-background']};
-      color: ${s.theme.white};
+      background: ${s.theme.colors['base-background']};
+      color: ${s.theme.colors.white};
       -webkit-font-smoothing: antialized;
     }
     
     body, input, textarea, button {
-      font: 400 1rem 'Nunito', sans-serif;
+      font: ${s.theme.fonts['text-m']};
+      color: ${s.theme.colors['base-text']};
     }
 
   `}

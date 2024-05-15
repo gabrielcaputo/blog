@@ -1,7 +1,7 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { DefaultLayout } from '../../layouts/DefaultLayout';
 import { Posts } from '../../pages/Posts';
-import { Post } from '../../pages/Post';
+import { PostDetail } from '../../pages/PostDetail';
 
 
 export function Router() {
@@ -9,8 +9,9 @@ export function Router() {
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Posts />} />
-        <Route path="/posts/:id" element={<Post />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
       </Route>
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }

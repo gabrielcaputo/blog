@@ -1,7 +1,13 @@
+import { List } from "./List";
+import { Profile } from "./Profile";
+import { SearchForm } from "./SearchForm";
+
 export function Posts() {
   return (
     <>
-      Posts
+      <Profile />
+      <SearchForm />
+      <List />
     </>
   )
 }
