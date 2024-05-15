@@ -18,7 +18,7 @@ export const defaultTheme = {
     'title-m': '700 1.25rem / 160% Nunito, sans-serif',
     'title-s': '700 1rem / 160% Nunito, sans-serif',
     'text-m': '400 1rem / 160% Nunito, sans-serif',
-    'text-s': '700 0.875rem / 160% Nunito, sans-serif',
+    'text-s': '400 0.875rem / 160% Nunito, sans-serif',
     'link': '700 0.75rem / 160% Nunito, sans-serif'
   }
 

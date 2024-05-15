@@ -1,14 +1,17 @@
 import styled, { css } from "styled-components";
 
-export const BaseContainer = styled.div`
+export const BaseContainerStyle = css`
   width: calc(100% - 4rem);
   max-width: 70rem;
-  padding: 0 1.5rem;
   margin: 0 auto;
 
   @media screen and (max-width: 960px) {
     width: calc(100% - 3rem);
   }
+`
+
+export const BaseContainer = styled.div`
+  ${BaseContainerStyle}
 `
 
 export const BaseCardStyle = css`${s => css`

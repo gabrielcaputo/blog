@@ -1,20 +1,32 @@
 import { ArrowSquareOut, Building, GithubLogo, Users } from "@phosphor-icons/react";
 import { ProfileContainer, ProfileContent, ProfileImage } from "./styles";
 
-export function Profile() {
+interface ProfileProps {
+  name: string,
+  github: {
+    avatar: string,
+    userName: string,
+    url: string
+  },
+  description: string,
+  role: string,
+  followers: number
+}
+
+export function Profile({ name, github, description, role, followers }: ProfileProps) {
   return (
     <ProfileContainer>
-      <ProfileImage src="https://images.unsplash.com/photo-1604964432806-254d07c11f32?q=50&w=500" />
+      <ProfileImage src={github.avatar} />
       <ProfileContent>
         <header>
-          <strong>Nome</strong>
-          <a href="#">Github <ArrowSquareOut  /></a>
+          <strong>{ name }</strong>
+          <a href={github.url} target="_blank">Github <ArrowSquareOut  /></a>
         </header>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, sapiente!</p>
+        <p>{description}</p>
         <ul>
-          <li><GithubLogo /><span>username</span></li>
-          <li><Building /><span>Cargo</span></li>
-          <li><Users /><span>0 seguidores</span></li>
+          <li><GithubLogo /><span>{github.userName}</span></li>
+          <li><Building /><span>{ role }</span></li>
+          <li><Users /><span>{ followers } seguidor{ followers > 1 || followers <= 0 && 'es' }</span></li>
         </ul>
       </ProfileContent>
     </ProfileContainer>
