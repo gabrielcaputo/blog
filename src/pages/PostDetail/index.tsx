@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { PostHeader } from "./PostHeader"
 import { PostContent } from "./PostContent"
 import { useCallback, useEffect, useState } from "react"
@@ -6,6 +6,7 @@ import { api } from "../../lib/axios"
 import { Post } from "../../@types/posts"
 
 export function PostDetail() {
+  const navigate = useNavigate()
   const { id } = useParams()
   const [post, setPost] = useState<Post>({
     number: 0,
@@ -19,11 +20,13 @@ export function PostDetail() {
     created_at: "",
   })
 
-  const fetchPost = useCallback(async () => {
+  const fetchPost = useCallback(() => {
     const endpoint = `/repos/${import.meta.env.VITE_GITHUB_USERNAME}/${import.meta.env.VITE_GITHUB_REPOSITORY}/issues/${id}`
-    const response = await api.get(endpoint)
-    setPost(response.data)
-  }, [id])
+    api.get(endpoint)
+      .then(response => setPost(response.data))
+      .catch(() => navigate('/'))
+    
+  }, [id, navigate])
 
   useEffect(() => {
     fetchPost()
