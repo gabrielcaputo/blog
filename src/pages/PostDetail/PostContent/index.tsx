@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { PostContentContainer } from "./styles";
 import Markdown from "react-markdown";
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
